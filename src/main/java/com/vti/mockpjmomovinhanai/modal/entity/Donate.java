@@ -16,11 +16,11 @@ public class Donate {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "donate_by")
+    @JoinColumn(name = "donate_by", nullable = false)
     private Account donateBy;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id", nullable = false)
     private Product productId;
 
     @Column(name = "create_date")

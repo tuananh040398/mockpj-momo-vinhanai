@@ -13,7 +13,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "username", length = 50,  unique = true, nullable = false)
+    @Column(name = "username", length = 50,  unique = true, nullable = false, updatable = false)
     private String username;
 
     @Column(name = "password", length = 50, nullable = false)
@@ -26,6 +26,7 @@ public class Account {
     private String address;
 
     @Column(name = "role", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Column(name = "coin")

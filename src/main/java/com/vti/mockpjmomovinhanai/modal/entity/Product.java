@@ -28,7 +28,7 @@ public class Product {
     @JoinColumn(name = "oranize_id", nullable = false)
     private Organize organizeId;
 
-    @Column(name = "cash")
+    @Column(name = "cash", nullable = false)
     private int cash;
 
     @Column(name = "max_cash", nullable = false)
@@ -44,5 +44,7 @@ public class Product {
     @Column(name = "expired_date", nullable = false)
     private Date expiredDate;
 
-
+    @Column(name = "confirm", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ProductConfirm confirm;
 }
