@@ -5,10 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "Product")
 public class Product {
@@ -24,8 +21,12 @@ public class Product {
     @Column(name = "image", nullable = false)
     private String image;
 
-    @Column(name = "content",  length = 10000, nullable = false)
+    @Column(name = "content",  length = 20000, nullable = false)
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "oranize_id", nullable = false)
+    private Organize organizeId;
 
     @Column(name = "cash")
     private int cash;

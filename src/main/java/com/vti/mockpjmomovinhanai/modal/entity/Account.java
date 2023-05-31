@@ -4,23 +4,23 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Entity
-@Table(name = "Account")
+@Table(name = "`Account`")
 public class Account {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "username", length = 50,  unique = true, nullable = false, updatable = false)
+    @Column(name = "username", length = 50,  unique = true, nullable = false)
     private String username;
 
     @Column(name = "password", length = 50, nullable = false)
     private String password;
+
+    @Column(name = "fullname", nullable = false)
+    private String fullname;
 
     @Column(name = "address")
     private String address;
