@@ -21,7 +21,7 @@ public class Product {
     @Column(name = "image", nullable = false)
     private String image;
 
-    @Column(name = "content",  length = 20000, nullable = false)
+    @Column(name = "content", nullable = false)
     private String content;
 
     @ManyToOne

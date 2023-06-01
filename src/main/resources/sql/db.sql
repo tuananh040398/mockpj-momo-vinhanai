@@ -24,7 +24,7 @@ CREATE TABLE `Product` (
                            id 					INT AUTO_INCREMENT PRIMARY KEY,
                            title 				VARCHAR(300) NOT NULL,
                            image 				VARCHAR(255) NOT NULL,
-                           content 			    VARCHAR(10000) NOT NULL,
+                           content 			    BLOB NOT NULL,
                            organize_id 		    INT NOT NULL,
                            cash 				INT UNSIGNED DEFAULT(0),
                            max_cash 			INT UNSIGNED NOT NULL,
