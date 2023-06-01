@@ -1,5 +1,5 @@
 package com.vti.mockpjmomovinhanai.modal.entity;
 
-public enum ProductConfirm {
+public enum ProductStatus {
     WAITING, ACCEPT
 }

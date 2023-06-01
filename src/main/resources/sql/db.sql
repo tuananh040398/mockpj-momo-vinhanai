@@ -30,14 +30,14 @@ CREATE TABLE `Product` (
                            organize_id 		    INT NOT NULL,
                            cash 				INT UNSIGNED DEFAULT(0),
                            max_cash 			INT UNSIGNED NOT NULL,
-                           type_product 		ENUM('Vì Trẻ Em', 'Người Già, Người Khuyết Tật', 'Bệnh Hiểm Nghèo', 'Hoàn Cảnh Khó Khăn', 'Hỗ Trợ Giáo Dục', 'Đầu Tư Cơ Sở Vật Chất', 'Cứu Trợ Động Vật', 'Bảo Vệ Môi Trường'),
+                           product_type 		ENUM('Vì Trẻ Em', 'Người Già, Người Khuyết Tật', 'Bệnh Hiểm Nghèo', 'Hoàn Cảnh Khó Khăn', 'Hỗ Trợ Giáo Dục', 'Đầu Tư Cơ Sở Vật Chất', 'Cứu Trợ Động Vật', 'Bảo Vệ Môi Trường'),
                            create_date 		    DATE NOT NULL,
                            expired_date 		DATE NOT NULL,
-                           confirm				ENUM('WAITING', 'ACCEPT') DEFAULT('WAITING'),
+                           status				ENUM('WAITING', 'ACCEPT') DEFAULT('WAITING'),
                            FOREIGN KEY(organize_id) REFERENCES `Organize`(id) ON DELETE CASCADE
 );
 
-CREATE TABLE `Donate` (
+CREATE TABLE `Donations` (
                           id 					INT AUTO_INCREMENT PRIMARY KEY,
                           donate_by			    INT NOT NULL,
                           product_id			INT NOT NULL,

@@ -34,9 +34,9 @@ public class Product {
     @Column(name = "max_cash", nullable = false)
     private  int maxCash;
 
-    @Column(name = "type_product", nullable = false)
+    @Column(name = "product_type", nullable = false)
     @Enumerated(EnumType.STRING)
-    private TypeProduct typeProduct;
+    private ProductType productType;
 
     @Column(name = "create_date", nullable = false)
     private Date createDate;
@@ -44,7 +44,7 @@ public class Product {
     @Column(name = "expired_date", nullable = false)
     private Date expiredDate;
 
-    @Column(name = "confirm", nullable = false)
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private ProductConfirm confirm;
+    private ProductStatus confirm;
 }
