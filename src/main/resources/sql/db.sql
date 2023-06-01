@@ -9,6 +9,8 @@ CREATE TABLE `Account` (
                            username 			VARCHAR(50) UNIQUE NOT NULL,
                            `password` 			VARCHAR(50) NOT NULL,
                            full_name			VARCHAR(100) NOT NULL,
+                           phone				VARCHAR(20) NOT NULL,
+                           email				VARCHAR(50),
                            address 			    VARCHAR(500),
                            `role`				ENUM('ADMIN', 'USER') NOT NULL,
                            coin				    INT UNSIGNED DEFAULT(0)

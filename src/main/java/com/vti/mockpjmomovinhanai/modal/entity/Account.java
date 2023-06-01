@@ -22,6 +22,12 @@ public class Account {
     @Column(name = "fullname", nullable = false)
     private String fullname;
 
+    @Column(name = "phone", length = 20, nullable = false)
+    private String phone;
+
+    @Column(name = "email", length = 50)
+    private String email;
+
     @Column(name = "address")
     private String address;
 
