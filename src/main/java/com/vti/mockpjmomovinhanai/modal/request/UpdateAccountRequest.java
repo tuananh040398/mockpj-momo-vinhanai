@@ -3,9 +3,7 @@ package com.vti.mockpjmomovinhanai.modal.request;
 import lombok.Data;
 
 @Data
-public class CreateAccountRequest {
-
-    private String username;
+public class UpdateAccountRequest {
 
     private String password;
 
