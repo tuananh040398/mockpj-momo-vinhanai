@@ -35,6 +35,6 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Column(name = "coin")
-    private int coin;
+    @Column(name = "cash")
+    private int cash;
 }

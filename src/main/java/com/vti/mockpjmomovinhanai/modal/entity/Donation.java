@@ -7,8 +7,8 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "`Donations`")
-public class Donations {
+@Table(name = "`Donation`")
+public class Donation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,9 @@ public class Donations {
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product productId;
+
+    @Column(name = "cash", nullable = false)
+    private int cash;
 
     @Column(name = "create_date")
     private Date createDate;

@@ -13,7 +13,7 @@ CREATE TABLE `Account` (
                            email				VARCHAR(50),
                            address 			    VARCHAR(500),
                            `role`				ENUM('ADMIN', 'USER') NOT NULL,
-                           coin				    INT UNSIGNED DEFAULT(0)
+                           cash				    INT UNSIGNED DEFAULT(0)
 );
 
 CREATE TABLE `Organization` (
@@ -37,10 +37,11 @@ CREATE TABLE `Product` (
                             FOREIGN KEY(organization_id) REFERENCES `Organization`(id) ON DELETE CASCADE
 );
 
-CREATE TABLE `Donations` (
+CREATE TABLE `Donation` (
                             id 					INT AUTO_INCREMENT PRIMARY KEY,
                             donate_by			INT NOT NULL,
                             product_id			INT NOT NULL,
+                            cash                INT UNSIGNED NOT NULL,
                             create_date			DATE,
                             FOREIGN KEY(donate_by) REFERENCES `Account`(id) ON DELETE NO ACTION,
                             FOREIGN KEY(product_id) REFERENCES `Product`(id) ON DELETE CASCADE
