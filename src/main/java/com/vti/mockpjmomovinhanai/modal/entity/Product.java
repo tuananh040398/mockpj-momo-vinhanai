@@ -25,8 +25,8 @@ public class Product {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "oranize_id", nullable = false)
-    private Organize organizeId;
+    @JoinColumn(name = "oranization_id", nullable = false)
+    private Organization organizationId;
 
     @Column(name = "cash", nullable = false)
     private int cash;
