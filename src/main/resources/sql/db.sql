@@ -12,7 +12,7 @@ CREATE TABLE `Account` (
                            phone				VARCHAR(20) NOT NULL,
                            email				VARCHAR(50),
                            address 			    VARCHAR(500),
-                           `role`				ENUM('ADMIN', 'USER') DEFAULT('USER'),
+                           `role`				ENUM('ADMIN', 'CUSTOMER') DEFAULT('USER'),
                            cash				    INT UNSIGNED DEFAULT(0)
 );
 
