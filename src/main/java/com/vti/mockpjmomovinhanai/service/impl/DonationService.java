@@ -4,7 +4,6 @@ import com.vti.mockpjmomovinhanai.modal.entity.Account;
 import com.vti.mockpjmomovinhanai.modal.entity.Donation;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateDonationRequest;
-import com.vti.mockpjmomovinhanai.modal.request.UpdateDonationRequest;
 import com.vti.mockpjmomovinhanai.repository.DonationRepository;
 import com.vti.mockpjmomovinhanai.service.IDonationService;
 import org.springframework.beans.BeanUtils;
@@ -53,17 +52,6 @@ public class DonationService implements IDonationService {
             donation.setCreateDate(new Date());
             repository.save(donation);
         }
-    }
-
-    @Override
-    public Donation update(int id, UpdateDonationRequest request) {
-        Donation donationDb = getById(id);
-        if (donationDb != null){
-            BeanUtils.copyProperties(request, donationDb);
-            donationDb.setId(id);
-            repository.save(donationDb);
-        }
-        return null;
     }
 
     @Override

@@ -33,4 +33,9 @@ public class DonationController {
         service.create(request);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+        service.delete(id);
+    }
+
 }
