@@ -35,8 +35,9 @@ public class Product {
     private  int maxCash;
 
     @Column(name = "product_type", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ProductType productType;
+//    @Enumerated(EnumType.STRING)
+    @Convert(converter = ProductTypeConverter.class)
+    private String productType;
 
     @Column(name = "create_date", nullable = false)
     private Date createDate;

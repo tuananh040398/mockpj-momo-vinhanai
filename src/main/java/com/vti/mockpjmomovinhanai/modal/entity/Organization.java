@@ -14,6 +14,9 @@ public class Organization {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "logo")
+    private String logo;
+
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 

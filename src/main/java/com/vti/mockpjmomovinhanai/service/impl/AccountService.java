@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService implements IAccountService {
@@ -23,6 +24,10 @@ public class AccountService implements IAccountService {
 
     @Override
     public Account getById(int id) {
+        Optional<Account> optional = repository.findById(id);
+        if (optional.isPresent()){
+            return optional.get();
+        }
         return null;
     }
 

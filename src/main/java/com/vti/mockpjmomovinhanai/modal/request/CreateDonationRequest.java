@@ -9,9 +9,9 @@ import java.util.Date;
 @Data
 public class CreateDonationRequest {
 
-    private Account donateBy;
+    private int donateBy;
 
-    private Product productId;
+    private int productId;
 
     private int cash;
 
