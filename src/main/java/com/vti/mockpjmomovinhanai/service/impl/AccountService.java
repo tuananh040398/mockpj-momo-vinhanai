@@ -17,7 +17,7 @@ import java.util.Optional;
 public class AccountService implements IAccountService {
 
     @Autowired
-    public AccountRepository repository;
+    private AccountRepository repository;
 
     @Override
     public List<Account> getAll() {

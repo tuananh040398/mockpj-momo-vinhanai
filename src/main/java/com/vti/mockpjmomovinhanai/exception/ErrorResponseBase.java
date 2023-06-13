@@ -7,7 +7,7 @@ public enum ErrorResponseBase {
     ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "Người dùng không tồn tại"),
     DONATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Quyên góp không tồn tại"),
     PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "Chương trình quyên góp không tồn tại"),
-    DONATION_OR_ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "Người dùng hoặc chương trình quyên góp không tồn tại")
+    ORGANIZATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Tổ chức không tồn tại")
     ;
 
     public final HttpStatus status;
