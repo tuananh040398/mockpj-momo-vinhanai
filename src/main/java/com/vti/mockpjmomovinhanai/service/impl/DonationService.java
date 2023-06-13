@@ -1,5 +1,7 @@
 package com.vti.mockpjmomovinhanai.service.impl;
 
+import com.vti.mockpjmomovinhanai.exception.AppException;
+import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.entity.Account;
 import com.vti.mockpjmomovinhanai.modal.entity.Donation;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
@@ -34,10 +36,10 @@ public class DonationService implements IDonationService {
     @Override
     public Donation getById(int id) {
         Optional<Donation> optional = repository.findById(id);
-        if (optional.isPresent()) {
-            return optional.get();
+        if (optional.isEmpty()) {
+            throw new AppException(ErrorResponseBase.DONATION_NOT_FOUND);
         }
-        return null;
+        return optional.get();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.vti.mockpjmomovinhanai.service.impl;
 
+import com.vti.mockpjmomovinhanai.exception.AppException;
+import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
 import com.vti.mockpjmomovinhanai.repository.ProductRepository;
@@ -7,7 +9,9 @@ import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService implements IProductService {
@@ -20,7 +24,11 @@ public class ProductService implements IProductService {
 
     @Override
     public Product getById(int id) {
-        return null;
+        Optional<Product> optional = repository.findById(id);
+        if (optional.isEmpty()) {
+            throw new AppException(ErrorResponseBase.PRODUCT_NOT_FOUND);
+        }
+        return optional.get();
     }
 
     @Override

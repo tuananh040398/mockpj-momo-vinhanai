@@ -1,5 +1,7 @@
 package com.vti.mockpjmomovinhanai.service.impl;
 
+import com.vti.mockpjmomovinhanai.exception.AppException;
+import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.entity.Account;
 import com.vti.mockpjmomovinhanai.modal.request.CreateAccountRequest;
 import com.vti.mockpjmomovinhanai.modal.request.UpdateAccountRequest;
@@ -25,10 +27,10 @@ public class AccountService implements IAccountService {
     @Override
     public Account getById(int id) {
         Optional<Account> optional = repository.findById(id);
-        if (optional.isPresent()){
-            return optional.get();
+        if (optional.isEmpty()){
+            throw new AppException(ErrorResponseBase.ACCOUNT_NOT_FOUND);
         }
-        return null;
+        return optional.get();
     }
 
     @Override
