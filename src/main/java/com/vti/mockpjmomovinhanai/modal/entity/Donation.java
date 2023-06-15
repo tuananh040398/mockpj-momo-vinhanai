@@ -28,4 +28,5 @@ public class Donation {
 
     @Column(name = "create_date")
     private Date createDate;
+
 }

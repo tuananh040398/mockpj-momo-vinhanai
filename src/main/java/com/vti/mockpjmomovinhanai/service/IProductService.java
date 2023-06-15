@@ -1,5 +1,6 @@
 package com.vti.mockpjmomovinhanai.service;
 
+import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
 import org.springframework.stereotype.Service;
@@ -17,4 +18,5 @@ public interface IProductService {
     Product update(int id, CreateProductRequest request);
 
     void delete(int id);
+
 }

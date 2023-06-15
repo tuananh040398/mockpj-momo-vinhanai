@@ -35,7 +35,6 @@ public class Product {
     private  int maxCash;
 
     @Column(name = "product_type", nullable = false)
-//    @Enumerated(EnumType.STRING)
     @Convert(converter = ProductTypeConverter.class)
     private String productType;
 
@@ -48,4 +47,6 @@ public class Product {
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private ProductStatus confirm;
+
+
 }

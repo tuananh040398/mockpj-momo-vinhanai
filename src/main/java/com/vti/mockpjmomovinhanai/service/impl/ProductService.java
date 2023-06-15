@@ -2,10 +2,14 @@ package com.vti.mockpjmomovinhanai.service.impl;
 
 import com.vti.mockpjmomovinhanai.exception.AppException;
 import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
+import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
+import com.vti.mockpjmomovinhanai.modal.entity.Donation;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
+import com.vti.mockpjmomovinhanai.repository.DonationRepository;
 import com.vti.mockpjmomovinhanai.repository.ProductRepository;
 import com.vti.mockpjmomovinhanai.service.IProductService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +19,11 @@ import java.util.Optional;
 @Service
 public class ProductService implements IProductService {
     @Autowired
-    ProductRepository repository;
+    private ProductRepository repository;
+
+    @Autowired
+    private DonationRepository donationRepository;
+
     @Override
     public List<Product> getAll() {
         return repository.findAll();
@@ -44,4 +52,5 @@ public class ProductService implements IProductService {
     public void delete(int id) {
 
     }
+
 }
