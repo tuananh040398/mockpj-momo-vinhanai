@@ -11,6 +11,8 @@ import java.util.List;
 public interface IProductService {
     List<Product> getAll();
 
+    List<ProductDto> getAll2();
+
     Product getById(int id);
 
     void create(CreateProductRequest request);

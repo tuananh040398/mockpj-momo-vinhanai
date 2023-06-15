@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -48,5 +49,6 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductStatus confirm;
 
-
+    @OneToMany(mappedBy = "productId")
+    private List<Donation> donations;
 }
