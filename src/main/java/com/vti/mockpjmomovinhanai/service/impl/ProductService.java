@@ -34,7 +34,7 @@ public class ProductService implements IProductService {
             ProductDto productDto = new ProductDto();
             BeanUtils.copyProperties(product, productDto);
             productDto.setDonate(product.getDonations().size()); // C1
-//            productDto.setDonate(donationRepository.countDonateBy(product.getId()));// cách 2
+//            productDto.setDonate(donationRepository.countDonateBy(product.getId())); // cách 2
             response.add(productDto);
         }
         return response;

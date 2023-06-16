@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "Product")
 public class Product {
@@ -51,4 +53,22 @@ public class Product {
 
     @OneToMany(mappedBy = "productId")
     private List<Donation> donations;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", image='" + image + '\'' +
+                ", content='" + content + '\'' +
+                ", organizationId=" + organizationId +
+                ", cash=" + cash +
+                ", maxCash=" + maxCash +
+                ", productType='" + productType + '\'' +
+                ", createDate=" + createDate +
+                ", expiredDate=" + expiredDate +
+                ", confirm=" + confirm +
+                ", donations=" + donations.size() +
+                '}';
+    }
 }

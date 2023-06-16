@@ -12,7 +12,7 @@ public class ProductDto {
 
     private String title;
 
-    private String organizationId;
+    private int organizationId;
 
     private int cash;
 
