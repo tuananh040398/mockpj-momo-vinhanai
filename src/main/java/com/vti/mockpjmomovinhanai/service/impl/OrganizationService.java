@@ -21,7 +21,7 @@ public class OrganizationService implements IOrganizationService {
 
     @Override
     public List<Organization> getAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
+import com.vti.mockpjmomovinhanai.modal.request.UpdateProductRequest;
 import com.vti.mockpjmomovinhanai.repository.ProductRepository;
 import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.BeanUtils;
@@ -55,7 +56,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product update(int id, CreateProductRequest request) {
+    public Product update(int id, UpdateProductRequest request) {
         return null;
     }
 
