@@ -8,11 +8,13 @@ public class ProductDto {
 
     private String title;
 
-    private int organizationId;
+    private String organizationName;
 
     private int cash;
 
     private int maxCash;
 
     private int donate;
+
+
 }

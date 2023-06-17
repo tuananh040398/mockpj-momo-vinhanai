@@ -27,13 +27,14 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<ProductDto> getAll2() {
+    public List<ProductDto> getAllDto() {
         List<Product> products =  getAll();
 
         List<ProductDto> response = new ArrayList<>();
         for (Product product : products) {
             ProductDto productDto = new ProductDto();
             BeanUtils.copyProperties(product, productDto);
+            productDto.setOrganizationName(product.getOrganizationId().getName());
             productDto.setDonate(product.getDonations().size()); // C1
 //            productDto.setDonate(donationRepository.countDonateBy(product.getId())); // cách 2
             response.add(productDto);

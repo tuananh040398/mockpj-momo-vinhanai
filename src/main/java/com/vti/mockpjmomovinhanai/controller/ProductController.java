@@ -28,12 +28,12 @@ public class ProductController {
         return productService.getAll();
     }
 
-    @GetMapping("/get-all2")
-    public List<ProductDto> getAll2() {
-        return productService.getAll2();
+    @GetMapping("/get-all-productdto")
+    public List<ProductDto> getAllDto() {
+        return productService.getAllDto();
     }
 
-    
+
     @GetMapping("/{id}")
     public Product getById(@PathVariable int id) {
         return productService.getById(id);

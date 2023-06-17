@@ -52,6 +52,7 @@ public class Product {
     @OneToMany(mappedBy = "productId")
     private List<Donation> donations;
 
+
     @Override
     public String toString() {
         return "Product{" +
