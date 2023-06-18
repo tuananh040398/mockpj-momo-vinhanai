@@ -20,6 +20,8 @@ public interface IProductService {
 
     Product update(int id, UpdateProductRequest request);
 
+    void updateCash(int id, UpdateProductRequest request);
+
     void delete(int id);
 
 }
