@@ -26,6 +26,9 @@ public class Donation {
     @Column(name = "cash", nullable = false)
     private int cash;
 
+    @Column(name = "donate_type")
+    private DonateType donateType;
+
     @Column(name = "create_date")
     private Date createDate;
 

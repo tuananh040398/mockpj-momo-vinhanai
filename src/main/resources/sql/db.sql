@@ -43,6 +43,7 @@ CREATE TABLE `Donation` (
                             donate_by			INT NOT NULL,
                             product_id			INT NOT NULL,
                             cash                INT UNSIGNED NOT NULL,
+                            donate_type			ENUM('VNPAY', 'MOMO'),
                             create_date			DATE,
                             FOREIGN KEY(donate_by) REFERENCES `Account`(id) ON DELETE NO ACTION,
                             FOREIGN KEY(product_id) REFERENCES `Product`(id) ON DELETE CASCADE
@@ -88,25 +89,25 @@ INSERT INTO `mock_project`.`product` (`id`, `title`, `image`, `content`, `organi
 INSERT INTO `mock_project`.`product` (`id`, `title`, `image`, `content`, `organization_id`, `cash`, `max_cash`, `product_type`, `create_date`, `expired_date`, `status`) VALUES ('18', 'Mang 10 thư viện đến trẻ em ở vùng khó khăn phía Bắc gồm Hà Giang và Bắc Ninh', 'image', 'Ở Hà Giang hiện có 192 xã đồng bào vùng dân tộc, với trên 1.300 thôn bản đặc biệt khó khăn. Tỷ lệ hộ nghèo tới hơn 45%, thu nhập trung bình đầu người chỉ vỏn vẹn 25 triệu/ năm. Có trường có lớp học khang trang để con em trong gia đình có thể theo đuổi giấc mơ con chữ, vẫn là ước mong của đồng bào sinh sống tại vùng cao núi đá nơi đây. Hà Giang là một trong những địa phương khó khăn nhất của cả nước với đồng bào dân tộc thiểu số chiếm tỷ lệ cao. Không chỉ vậy điều kiện cơ sở vật chất, giao thông cũng còn nhiều vấn đề nan giải chưa thể khắc phục. Đây cũng chính là nguyên nhân chủ yếu gây cản trở sự phát triển giáo dục tại tỉnh Hà Giang.', '6', '0', '208000000', 'NGNKT', '2023-06-16', '2023-08-18', 'ACCEPT');
 
 
-INSERT INTO `mock_project`.`donation` (`donate_by`, `product_id`, `cash`, `create_date`) VALUES ('2', '1', '1000000', '2023-06-01');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('2', '1', '1', '200000', '2023-06-01');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('3', '3', '1', '50000', '2023-06-01');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('4', '4', '1', '10000', '2023-06-01');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('5', '5', '1', '20000', '2023-06-01');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('6', '6', '1', '30000', '2023-06-02');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('7', '7', '1', '40000', '2023-06-02');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('8', '1', '2', '50000', '2023-06-02');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('9', '1', '3', '60000', '2023-06-02');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('10', '1', '4', '70000', '2023-06-02');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('11', '1', '5', '80000', '2023-06-03');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('12', '1', '6', '90000', '2023-06-03');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('13', '1', '7', '100000', '2023-06-03');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('14', '1', '8', '110000', '2023-06-03');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('15', '1', '9', '120000', '2023-06-03');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('16', '1', '10', '130000', '2023-06-04');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('17', '2', '12', '5000', '2023-06-04');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('18', '3', '14', '15000', '2023-06-04');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('19', '8', '15', '25000', '2023-06-04');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('20', '9', '16', '35000', '2023-06-04');
-INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `create_date`) VALUES ('21', '10', '17', '45000', '2023-06-04');
+INSERT INTO `mock_project`.`donation` (`donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('2', '1', '1000000', 'MOMO', '2023-06-01');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('2', '1', '1', '200000', 'MOMO','2023-06-01');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('3', '3', '1', '50000', 'MOMO','2023-06-01');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('4', '4', '1', '10000', 'MOMO','2023-06-01');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('5', '5', '1', '20000', 'MOMO','2023-06-01');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('6', '6', '1', '30000', 'MOMO','2023-06-02');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('7', '7', '1', '40000', 'MOMO','2023-06-02');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('8', '1', '2', '50000', 'VNPAY','2023-06-02');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('9', '1', '3', '60000', 'VNPAY','2023-06-02');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('10', '1', '4', '70000', 'VNPAY','2023-06-02');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('11', '1', '5', '80000', 'MOMO','2023-06-03');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('12', '1', '6', '90000', 'MOMO','2023-06-03');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('13', '1', '7', '100000', 'VNPAY','2023-06-03');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('14', '1', '8', '110000', 'MOMO','2023-06-03');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('15', '1', '9', '120000', 'MOMO','2023-06-03');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('16', '1', '10', '130000', 'VNPAY','2023-06-04');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('17', '2', '12', '5000', 'MOMO','2023-06-04');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('18', '3', '14', '15000', 'MOMO','2023-06-04');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('19', '8', '15', '25000', 'VNPAY','2023-06-04');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('20', '9', '16', '35000', 'MOMO','2023-06-04');
+INSERT INTO `mock_project`.`donation` (`id`, `donate_by`, `product_id`, `cash`, `donate_type`,`create_date`) VALUES ('21', '10', '17', '45000', 'VNPAY','2023-06-04');
 
