@@ -27,6 +27,7 @@ public class Donation {
     private int cash;
 
     @Column(name = "donate_type")
+    @Enumerated(EnumType.STRING)
     private DonateType donateType;
 
     @Column(name = "create_date")
