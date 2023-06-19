@@ -62,6 +62,14 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public void updateCash(int id, UpdateProductRequest request) {
+        Product product = getById(id);
+
+        product.setCash(request.getCash());
+        repository.save(product);
+    }
+
+    @Override
     public void delete(int id) {
 
     }

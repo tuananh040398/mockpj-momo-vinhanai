@@ -2,6 +2,9 @@ package com.vti.mockpjmomovinhanai.controller;
 
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
+import com.vti.mockpjmomovinhanai.modal.request.CreateDonationRequest;
+import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
+import com.vti.mockpjmomovinhanai.modal.request.UpdateProductRequest;
 import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -28,9 +31,23 @@ public class ProductController {
         return productService.getAllDto();
     }
 
-
     @GetMapping("/{id}")
     public Product getById(@PathVariable int id) {
         return productService.getById(id);
+    }
+
+    @PostMapping("/create")
+    public void create(@RequestBody CreateProductRequest request) {
+        productService.create(request);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+        productService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateCash(@PathVariable int id, @RequestBody UpdateProductRequest request){
+        productService.updateCash(id, request);
     }
 }
