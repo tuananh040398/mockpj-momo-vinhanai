@@ -3,11 +3,12 @@ package com.vti.mockpjmomovinhanai.exception;
 import org.springframework.http.HttpStatus;
 
 public enum ErrorResponseBase {
-    NOT_FOUND(HttpStatus.NOT_FOUND, "Đối tượng không tồn tại"),
     ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "Người dùng không tồn tại"),
     DONATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Quyên góp không tồn tại"),
     PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "Chương trình quyên góp không tồn tại"),
-    ORGANIZATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Tổ chức không tồn tại")
+    ORGANIZATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Tổ chức không tồn tại"),
+    NOT_ENOUGE_MONEY(HttpStatus.BAD_REQUEST, "Ví Momo của bạn không đủ để thực hiện giao dịch này"),
+    TRANSACTION_ERROR(HttpStatus.BAD_REQUEST, "Lỗi giao dịch")
     ;
 
     public final HttpStatus status;

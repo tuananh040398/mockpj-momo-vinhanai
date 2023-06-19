@@ -7,7 +7,7 @@ import javax.persistence.Converter;
 public class ProductTypeConverter implements AttributeConverter<String, String> {
     @Override
     public String convertToDatabaseColumn(String productType) {
-        return ProductType.valueOf(productType).name();
+        return ProductType.convertToProductType(productType);
     }
 
     @Override

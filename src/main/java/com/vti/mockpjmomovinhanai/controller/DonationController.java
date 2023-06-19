@@ -4,9 +4,12 @@ import com.vti.mockpjmomovinhanai.modal.entity.Donation;
 import com.vti.mockpjmomovinhanai.modal.request.CreateDonationRequest;
 import com.vti.mockpjmomovinhanai.service.impl.DonationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,8 +32,9 @@ public class DonationController {
     }
 
     @PostMapping("/create")
-    public void create(@RequestBody CreateDonationRequest request) {
+    public ResponseEntity<?> create(@RequestBody @Valid CreateDonationRequest request) {
         service.create(request);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("/{id}")

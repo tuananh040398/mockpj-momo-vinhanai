@@ -11,7 +11,20 @@ public enum ProductType  {
     BVMT("Bảo Vệ Môi Trường");
     public final String productType;
 
+    public String getProductType() {
+        return productType;
+    }
+
     ProductType(String productType) {
         this.productType = productType;
+    }
+
+    public static String convertToProductType(String value) {
+        for (ProductType productType : ProductType.values()) {
+            if (productType.getProductType().equals(value)) {
+                return productType.name();
+            }
+        }
+        return null; // Giá trị default khi ko có trường hợp đúng
     }
 }
