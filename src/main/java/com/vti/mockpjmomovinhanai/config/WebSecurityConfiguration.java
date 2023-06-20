@@ -15,14 +15,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeRequests()
-                .antMatchers("api/v1/product/get-all-productdto").permitAll() // Config API không cần xác thực
-                .antMatchers("api/v1/account/get-all").hasAnyAuthority("ADMIN")
+    protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests()
+                .antMatchers("/api/v1/product/get-all-productdto").permitAll() // Config API không cần xác thực
+                .antMatchers("/api/v1/account/get-all").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated() // Những đường dẫn còn lại cần dược xác thực
                 .and().httpBasic() // Kích hoạt cấu hình http basic trong Spring Security
                 .and().cors().and().csrf().disable(); // Tắt tính năng Cross-site Request Forgery (CSRF) trong spring Security
-//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Override
