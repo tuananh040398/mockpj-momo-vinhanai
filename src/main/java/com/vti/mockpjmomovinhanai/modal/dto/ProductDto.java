@@ -13,9 +13,9 @@ public class ProductDto {
 
     private String organizationName;
 
-    private int cash;
+    private Long cash;
 
-    private int maxCash;
+    private Long maxCash;
 
     private int donate;
 

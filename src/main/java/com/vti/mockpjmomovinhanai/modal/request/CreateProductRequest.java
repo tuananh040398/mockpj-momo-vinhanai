@@ -18,9 +18,9 @@ public class CreateProductRequest {
 
     private int organizationId;
 
-    private int cash;
+    private Long cash;
 
-    private  int maxCash;
+    private  Long maxCash;
 
     @Enumerated(EnumType.STRING)
     private ProductType productType;

@@ -30,10 +30,10 @@ public class Product {
     private Organization organizationId;
 
     @Column(name = "cash", nullable = false)
-    private int cash;
+    private Long cash;
 
     @Column(name = "max_cash", nullable = false)
-    private  int maxCash;
+    private  Long maxCash;
 
     @Column(name = "product_type", nullable = false)
     @Convert(converter = ProductTypeConverter.class)

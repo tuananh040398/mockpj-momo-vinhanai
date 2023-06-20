@@ -13,7 +13,7 @@ CREATE TABLE `Account` (
                            email				VARCHAR(50),
                            address 			    VARCHAR(500),
                            `role`				ENUM('ADMIN', 'CUSTOMER') DEFAULT('USER'),
-                           cash				    INT UNSIGNED DEFAULT(0)
+                           cash				    LONG DEFAULT(0)
 );
 
 CREATE TABLE `Organization` (
@@ -29,8 +29,8 @@ CREATE TABLE `Product` (
                            image 				VARCHAR(700),
                            content 			    TEXT,
                            organization_id 	    INT NOT NULL,
-                           cash 				INT UNSIGNED DEFAULT(0),
-                           max_cash 			INT UNSIGNED NOT NULL,
+                           cash 				LONG DEFAULT(0),
+                           max_cash 			LONG NOT NULL,
                            product_type 		ENUM('VTE', 'NGNKT', 'BHN', 'HCKK', 'HTGD', 'DTCSVC', 'CTDV', 'BVMT'),
                            create_date 		    DATE NOT NULL,
                            expired_date 		DATE NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `Donation` (
                             id 					INT AUTO_INCREMENT PRIMARY KEY,
                             donate_by			INT NOT NULL,
                             product_id			INT NOT NULL,
-                            cash                INT UNSIGNED NOT NULL,
+                            cash                LONG NOT NULL,
                             donate_type			ENUM('VNPAY', 'MOMO'),
                             create_date			DATE,
                             FOREIGN KEY(donate_by) REFERENCES `Account`(id) ON DELETE NO ACTION,

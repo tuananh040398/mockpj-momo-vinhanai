@@ -36,5 +36,5 @@ public class Account {
     private Role role;
 
     @Column(name = "cash")
-    private int cash;
+    private Long cash;
 }

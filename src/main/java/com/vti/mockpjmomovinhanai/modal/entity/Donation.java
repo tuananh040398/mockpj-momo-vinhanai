@@ -24,7 +24,7 @@ public class Donation {
     private Product productId;
 
     @Column(name = "cash", nullable = false)
-    private int cash;
+    private Long cash;
 
     @Column(name = "donate_type")
     @Enumerated(EnumType.STRING)
