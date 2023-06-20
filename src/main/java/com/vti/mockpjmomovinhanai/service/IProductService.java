@@ -18,9 +18,7 @@ public interface IProductService {
 
     void create(CreateProductRequest request);
 
-    Product update(int id, UpdateProductRequest request);
-
-    void updateCash(int id, UpdateProductRequest request);
+    void update(int id, UpdateProductRequest request);;
 
     void delete(int id);
 
