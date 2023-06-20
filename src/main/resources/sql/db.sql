@@ -49,16 +49,26 @@ CREATE TABLE `Donation` (
                             FOREIGN KEY(product_id) REFERENCES `Product`(id) ON DELETE CASCADE
 );
 
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('1', 'admin', 'admin', 'admin', '0123456789', 'admin@gmail.com', 'admin-home', 'ADMIN', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('2', 'customer', 'customer', 'customer', '0123456789', 'customer@gmail.com', 'customer-home', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('3', 'customer2', 'customer2', 'customer2', '0123456789', 'customer2@gmail.com', 'customer-home', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('4', 'customer3', 'customer3', 'customer3', '0123456789', 'customer3@gmail.com', 'customer3-address', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('5', 'tuananh', 'tuananh', 'tuananh', '0123456789', 'tuananh@gmail.com', 'tuananh-address', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('6', 'tuananh123', 'tuananh123', 'tuananh123', '0123456789', 'tuananh123@gmail.com', 'tuananh123-address', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('7', 'vimomo', 'vimomo', 'vimomo', '0123456789', 'vimomo@gmaill.com', 'vimomo-address', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('8', 'khabanh', 'khabanh', 'khabanh', '0123456789', 'khabanh@gmail.com', 'khabanh-address', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('9', 'ronaldo', 'ronaldo', 'ronaldo', '0123456789', 'ronaldo@gmail.com', 'ronaldo-address', 'CUSTOMER', '0');
-INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('10', 'vinfast', 'vinfast', 'vinfast', '0123456789', 'vinfast@gmail.com', 'vinfast-address', 'CUSTOMER', '0');
+CREATE TABLE `token` (
+                         id 					INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                         token 				    VARCHAR(500) NOT NULL,
+                         user_agent 			VARCHAR(500) NOT NULL,
+                         is_black_list 		    TINYINT(1) DEFAULT NULL,
+                         refresh_time 		    DATETIME DEFAULT NULL,
+                         expiration 			DATETIME DEFAULT NULL,
+                         UNIQUE KEY token (token)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('1', 'admin', 'admin', 'admin', '0123456789', 'admin@gmail.com', 'admin-home', 'ADMIN', '1000000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('2', 'customer', 'customer', 'customer', '0123456789', 'customer@gmail.com', 'customer-home', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('3', 'customer2', 'customer2', 'customer2', '0123456789', 'customer2@gmail.com', 'customer-home', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('4', 'customer3', 'customer3', 'customer3', '0123456789', 'customer3@gmail.com', 'customer3-address', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('5', 'tuananh', 'tuananh', 'tuananh', '0123456789', 'tuananh@gmail.com', 'tuananh-address', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('6', 'tuananh123', 'tuananh123', 'tuananh123', '0123456789', 'tuananh123@gmail.com', 'tuananh123-address', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('7', 'vimomo', 'vimomo', 'vimomo', '0123456789', 'vimomo@gmaill.com', 'vimomo-address', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('8', 'khabanh', 'khabanh', 'khabanh', '0123456789', 'khabanh@gmail.com', 'khabanh-address', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('9', 'ronaldo', 'ronaldo', 'ronaldo', '0123456789', 'ronaldo@gmail.com', 'ronaldo-address', 'CUSTOMER', '50000000');
+INSERT INTO `mock_project`.`account` (`id`, `username`, `password`, `full_name`, `phone`, `email`, `address`, `role`, `cash`) VALUES ('10', 'vinfast', 'vinfast', 'vinfast', '0123456789', 'vinfast@gmail.com', 'vinfast-address', 'CUSTOMER', '50000000');
 
 
 INSERT INTO `mock_project`.`organization` (`id`, `logo`, `name`, `information`) VALUES ('1', 'Logo', 'Trung tâm Tương Lai', 'Trung tâm Giáo dục Sức khỏe và Phát triển Cộng đồng Tương Lai (Trung tâm Tương Lai) thành lập năm 2011 là tổ chức xã hội với sứ mệnh hoạt động vì trẻ em và thanh thiếu niên có hoàn cảnh đặc biệt. Trung tâm Tương Lai không chỉ giúp đỡ về mặt tài chính mà còn quan tâm giúp đỡ trẻ em và thanh thiếu niên về hướng nghiệp, kỹ năng sống và vui chơi giải trí lành mạnh.');
