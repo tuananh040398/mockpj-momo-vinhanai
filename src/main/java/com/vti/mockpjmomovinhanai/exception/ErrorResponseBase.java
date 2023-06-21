@@ -9,8 +9,10 @@ public enum ErrorResponseBase {
     ORGANIZATION_NOT_FOUND(HttpStatus.NOT_FOUND, "Tổ chức không tồn tại"),
     NOT_ENOUGE_MONEY(HttpStatus.BAD_REQUEST, "Ví Momo của bạn không đủ để thực hiện giao dịch này"),
     TRANSACTION_ERROR(HttpStatus.BAD_REQUEST, "Lỗi giao dịch"),
+    MAX_DONATE(HttpStatus.BAD_REQUEST, "Mỗi lần chỉ có thể quyên góp tối đa 2 tỷ"),
     LOGIN_FAILS_USERNAME(HttpStatus.UNAUTHORIZED, "Người dùng không tồn tại"),
-    LOGIN_FAILS_PASSWORD(HttpStatus.UNAUTHORIZED, "Mật khẩu không đúng")
+    LOGIN_FAILS_PASSWORD(HttpStatus.UNAUTHORIZED, "Mật khẩu không đúng"),
+    USERNAME_EXISTED(HttpStatus.INTERNAL_SERVER_ERROR, "Username đã tồn tại")
     ;
 
     public final HttpStatus status;
