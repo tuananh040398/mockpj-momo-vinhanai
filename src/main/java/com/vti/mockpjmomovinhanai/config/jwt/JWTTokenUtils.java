@@ -1,6 +1,5 @@
 package com.vti.mockpjmomovinhanai.config.jwt;
 
-
 import com.alibaba.fastjson.JSON;
 import com.vti.mockpjmomovinhanai.exception.AppException;
 import com.vti.mockpjmomovinhanai.modal.dto.LoginDto;
@@ -45,16 +44,10 @@ public class JWTTokenUtils {
                 .claim("authorities", loginDto.getRole().name()) // Thêm trường authorities để lưu giá trị phân quyền
                 .claim("user_agent", loginDto.getUserAgent()).compact(); // Thêm trường user_agent để lưu thông tin trình duyệt đang dùng
 
-        // Tạo đối tượng Token lưu vào Database
-        Token tokenEntity = new Token();
-        tokenEntity.setToken(token);
-        tokenEntity.setExpiration(expirationDate);
-        tokenEntity.setUserAgent(loginDto.getUserAgent());
-        tokenRepository.save(tokenEntity);
         return token;
     }
 
-    // Hàm dùng để mã hóa Token
+    // Hàm dùng để giải mã hóa Token
     public LoginDto parseAccessToken(String token) {
         LoginDto loginDto = new LoginDto();
         if (!token.isEmpty()) {
@@ -63,6 +56,7 @@ public class JWTTokenUtils {
                 Claims claims = Jwts.parser()
                         .setSigningKey(SECRET)
                         .parseClaimsJws(token).getBody();
+                // token hợp lệ, còn thời hạn thì mới giải mã được
                 // Lấy ra các thông tin
                 String user = claims.getSubject();
                 Role role = Role.valueOf(claims.get("authorities").toString());
@@ -85,17 +79,7 @@ public class JWTTokenUtils {
                 responseJson(response, new AppException("Token không hợp lệ", 401, httpServletRequest.getRequestURI()));
                 return false;
             }
-            token = token.replace(PREFIX_TOKEN, "").trim();
 
-            Token tokenEntity = tokenRepository.findByToken(token);
-            if (tokenEntity == null) { // không có token trên hệ thống
-                responseJson(response, new AppException("Token không tồn tại", 401, httpServletRequest.getRequestURI()));
-                return false;
-            }
-            if (tokenEntity.getExpiration().after(new Date(System.currentTimeMillis() + EXPIRATION_TIME))) { // Token hết hạn
-                responseJson(response, new AppException("Token hết hiệu lực", 401, httpServletRequest.getRequestURI()));
-                return false;
-            }
         } catch (Exception e) {
             responseJson(response, new AppException(e.getMessage(), 401, httpServletRequest.getRequestURI()));
             return false;
@@ -115,5 +99,4 @@ public class JWTTokenUtils {
             throw new RuntimeException(e);
         }
     }
-
 }

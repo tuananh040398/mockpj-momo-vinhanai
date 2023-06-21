@@ -63,10 +63,10 @@ public class SwaggerConfig {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .version("u.o.c")
+                .version("a.n.h")
                 .title("Api Final Exam")
                 .description("demo swagger for final exam")
-                .contact(new Contact("VTI", null, "uoc@vti.edu.vn"))
+                .contact(new Contact("VTI", null, "tuananh040398@gmail.com"))
                 .termsOfServiceUrl("http://localhost:8888/").termsOfServiceUrl("http://192.168.88.210:8080/")
                 .license("Apache 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0.html")

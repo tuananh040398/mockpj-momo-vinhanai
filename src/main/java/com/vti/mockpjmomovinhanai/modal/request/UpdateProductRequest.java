@@ -11,5 +11,4 @@ public class UpdateProductRequest {
 
     private String content;
 
-    private Long cash;
 }

@@ -77,6 +77,9 @@ public class DonationService implements IDonationService {
             if (request.getCash() > account.getCash()) {
                 throw new AppException(ErrorResponseBase.NOT_ENOUGE_MONEY);
             }
+            if (request.getCash() > 2000000000) {
+                throw new AppException(ErrorResponseBase.MAX_DONATE);
+            }
                 donation.setDonateBy(account);
                 donation.setProductId(product);
                 account.setCash(account.getCash() - request.getCash());
