@@ -4,6 +4,7 @@ package com.vti.mockpjmomovinhanai.config;
 import com.vti.mockpjmomovinhanai.config.jwt.JWTRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -24,9 +25,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 // Config API không cần xác thực, như api login
-                .antMatchers("/api/v1/product/get-all-productdto", "/api/v1/account/create").permitAll()
-                .antMatchers("/api/v1/auth/login").permitAll()
-                .antMatchers("/api/v1/account/get-all").hasAnyAuthority("ADMIN")
+                .antMatchers("/api/v1/product/get-all-productdto", "/api/v1/account/create", "/api/v1/auth/login").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/account/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated() // Những đường dẫn còn lại cần dược xác thực
                 .and().httpBasic() // Kích hoạt cấu hình http basic trong Spring Security
                 .and().cors().and().csrf().disable(); // Tắt tính năng Cross-site Request Forgery (CSRF) trong spring Security

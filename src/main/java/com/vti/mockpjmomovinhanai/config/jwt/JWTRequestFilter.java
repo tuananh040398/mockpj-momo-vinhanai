@@ -32,11 +32,11 @@ public class JWTRequestFilter extends OncePerRequestFilter {
         String token = httpServletRequest.getHeader(AUTHORIZATION);
         String request = httpServletRequest.getRequestURI();
 
-        // config ở đây nữa
         if (StringUtils.containsAnyIgnoreCase(request, "/api/v1/account/create")
                 || StringUtils.containsAnyIgnoreCase(request, "/api/v1/account/get-all")
-                || StringUtils.containsAnyIgnoreCase(request, "/swagger-ui")
                 || StringUtils.containsAnyIgnoreCase(request, "/api/v1/auth/login")
+                || StringUtils.containsAnyIgnoreCase(request, "/api/v1/product/get-all-productdto")
+                || StringUtils.containsAnyIgnoreCase(request, "/swagger-ui")
                 || StringUtils.containsAnyIgnoreCase(request, "/swagger-resources")
                 || StringUtils.containsAnyIgnoreCase(request, "/v3/api-docs")) {
             // Những API public không cần check Token -> doFiler
