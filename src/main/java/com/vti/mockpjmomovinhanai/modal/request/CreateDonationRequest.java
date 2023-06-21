@@ -7,16 +7,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.Min;
 
-
-
 import java.util.Date;
 
 @Data
 public class CreateDonationRequest {
 
-
     private int donateBy;
-
 
     private int productId;
 
