@@ -48,7 +48,7 @@ public class AuthController {
         // Tạo đối tượng LoginDto để trả về
         LoginDto loginDto = new LoginDto();
         BeanUtils.copyProperties(accountOptional.get(), loginDto);
-        loginDto.setUserAgent(httpServletRequest.getHeader("User_Agent")); // Lấy thông tin trình duyệt đang sử dụng
+        loginDto.setUserAgent(httpServletRequest.getHeader("User-Agent")); // Lấy thông tin trình duyệt đang sử dụng
         String token = jwtTokenUtils.createAccessToken(loginDto); // Tạo token
         loginDto.setToken(token); // Set giá trị token vào loginDto để trả về cho người dùng sử dụng
         return loginDto;
