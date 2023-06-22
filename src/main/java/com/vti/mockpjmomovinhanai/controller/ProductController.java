@@ -32,7 +32,7 @@ public class ProductController {
         return productService.getAllDto();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get-by/{id}")
     public Product getById(@PathVariable int id) {
         return productService.getById(id);
     }
@@ -42,8 +42,7 @@ public class ProductController {
         productService.create(request);
     }
 
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete-by/{id}")
     public void deleteById(@PathVariable int id){
         productService.delete(id);
     }

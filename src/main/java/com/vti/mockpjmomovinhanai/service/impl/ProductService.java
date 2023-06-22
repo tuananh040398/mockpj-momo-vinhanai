@@ -61,10 +61,9 @@ public class ProductService implements IProductService {
 
     }
 
-
     @Override
     public void delete(int id) {
-
+        repository.deleteById(id);
     }
 
 }
