@@ -3,6 +3,7 @@ package com.vti.mockpjmomovinhanai.service.impl;
 import com.vti.mockpjmomovinhanai.exception.AppException;
 import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
+import com.vti.mockpjmomovinhanai.modal.dto.ProductDtoGetById;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
 import com.vti.mockpjmomovinhanai.modal.request.UpdateProductRequest;
@@ -49,6 +50,17 @@ public class ProductService implements IProductService {
             throw new AppException(ErrorResponseBase.PRODUCT_NOT_FOUND);
         }
         return optional.get();
+    }
+
+    @Override
+    public ProductDtoGetById getProductDtoById(int id) {
+        Product product = getById(id);
+        ProductDtoGetById productDtoGetById = new ProductDtoGetById();
+        BeanUtils.copyProperties(product, productDtoGetById);
+
+        productDtoGetById.setOrganizationName(product.getOrganizationId().getName());
+
+        return productDtoGetById;
     }
 
     @Override

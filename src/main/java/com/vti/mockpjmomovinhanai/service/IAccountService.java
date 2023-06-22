@@ -15,7 +15,7 @@ public interface IAccountService {
 
     void create(CreateAccountRequest request);
 
-    Account update(int id, UpdateAccountRequest request);
+    void update(int id, UpdateAccountRequest request);
 
     void delete(int id);
 }

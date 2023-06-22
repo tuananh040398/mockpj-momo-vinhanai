@@ -78,8 +78,10 @@ public class AccountService implements IAccountService, UserDetailsService {
     }
 
     @Override
-    public Account update(int id, UpdateAccountRequest request) {
-        return null;
+    public void update(int id, UpdateAccountRequest request) {
+        Account account = getById(id);
+        BeanUtils.copyProperties(request, account);
+//        repository.save(request);
     }
 
     @Override

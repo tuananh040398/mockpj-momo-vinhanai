@@ -1,6 +1,7 @@
 package com.vti.mockpjmomovinhanai.controller;
 
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
+import com.vti.mockpjmomovinhanai.modal.dto.ProductDtoGetById;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.request.CreateDonationRequest;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
@@ -33,8 +34,8 @@ public class ProductController {
     }
 
     @GetMapping("/get-by/{id}")
-    public Product getById(@PathVariable int id) {
-        return productService.getById(id);
+    public ProductDtoGetById getById(@PathVariable int id) {
+        return productService.getProductDtoById(id);
     }
 
     @PostMapping("/create")
