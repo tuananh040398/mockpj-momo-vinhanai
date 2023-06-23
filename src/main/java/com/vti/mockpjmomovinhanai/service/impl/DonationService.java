@@ -94,8 +94,4 @@ public class DonationService implements IDonationService {
         }
     }
 
-    @Override
-    public void delete(int id) {
-        donationRepository.deleteById(id);
-    }
 }

@@ -81,12 +81,12 @@ public class AccountService implements IAccountService, UserDetailsService {
     public void update(int id, UpdateAccountRequest request) {
         Account account = getById(id);
         BeanUtils.copyProperties(request, account);
-//        repository.save(request);
+        repository.save(account);
     }
 
     @Override
     public void delete(int id) {
-
+        repository.deleteById(id);
     }
 
 }

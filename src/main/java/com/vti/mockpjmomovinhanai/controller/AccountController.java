@@ -22,11 +22,13 @@ public class AccountController {
     @Autowired
     IAccountService accountService;
 
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     @GetMapping("/get-all")
     public List<Account> getAll() {
         return accountService.getAll();
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'CUSTOMER')")
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable int id) {
         Account account = accountService.getById(id);
@@ -41,6 +43,7 @@ public class AccountController {
                 .build();
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id){
         accountService.delete(id);

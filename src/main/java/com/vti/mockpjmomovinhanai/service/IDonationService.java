@@ -14,5 +14,4 @@ public interface IDonationService {
 
     void create(CreateDonationRequest request);
 
-    void delete(int id);
 }

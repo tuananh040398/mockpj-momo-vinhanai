@@ -1,7 +1,7 @@
 package com.vti.mockpjmomovinhanai.modal.entity;
 
 public enum ProductType  {
-    VTE ("Vì Trẻ Em"),
+    VTE("Vì Trẻ Em"),
     NGNKT("Người Già, Người Khuyết Tật"),
     BHN("Bệnh Hiểm Nghèo"),
     HCKK("Hoàn Cảnh Khó Khăn"),

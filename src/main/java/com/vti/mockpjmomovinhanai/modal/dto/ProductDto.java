@@ -17,6 +17,8 @@ public class ProductDto {
 
     private Long maxCash;
 
+    private String productType;
+
     private int donate;
 
 

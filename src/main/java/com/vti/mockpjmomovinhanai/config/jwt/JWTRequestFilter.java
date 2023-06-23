@@ -36,6 +36,7 @@ public class JWTRequestFilter extends OncePerRequestFilter {
                 || StringUtils.containsAnyIgnoreCase(request, "/api/v1/auth/login")
                 || StringUtils.containsAnyIgnoreCase(request, "/api/v1/product/get-all-productdto")
                 || StringUtils.containsAnyIgnoreCase(request, "/api/v1/product/get-by/")
+                || StringUtils.containsAnyIgnoreCase(request, "/api/v1/product/search")
                 || StringUtils.containsAnyIgnoreCase(request, "/swagger-ui")
                 || StringUtils.containsAnyIgnoreCase(request, "/swagger-resources")
                 || StringUtils.containsAnyIgnoreCase(request, "/v3/api-docs")) {

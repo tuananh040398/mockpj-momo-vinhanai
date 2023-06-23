@@ -3,12 +3,10 @@ package com.vti.mockpjmomovinhanai.controller;
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDtoGetById;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
-import com.vti.mockpjmomovinhanai.modal.request.CreateDonationRequest;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
-import com.vti.mockpjmomovinhanai.modal.request.UpdateProductRequest;
+import com.vti.mockpjmomovinhanai.modal.request.SearchProductRequest;
 import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +29,11 @@ public class ProductController {
     @GetMapping("/get-all-productdto")
     public List<ProductDto> getAllDto() {
         return productService.getAllDto();
+    }
+
+    @PostMapping("/search")
+    public List<ProductDto> search(@RequestBody SearchProductRequest request) {
+        return productService.search(request);
     }
 
     @GetMapping("/get-by/{id}")
