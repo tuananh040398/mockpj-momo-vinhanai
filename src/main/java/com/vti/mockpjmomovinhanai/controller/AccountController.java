@@ -2,6 +2,7 @@ package com.vti.mockpjmomovinhanai.controller;
 
 import com.vti.mockpjmomovinhanai.modal.entity.Account;
 import com.vti.mockpjmomovinhanai.modal.request.CreateAccountRequest;
+import com.vti.mockpjmomovinhanai.modal.request.UpdateAccountRequest;
 import com.vti.mockpjmomovinhanai.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,5 +48,11 @@ public class AccountController {
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id){
         accountService.delete(id);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @PutMapping("/{id}")
+    public void deleteById(@PathVariable int id, @RequestBody @Valid UpdateAccountRequest request){
+        accountService.update(id, request);
     }
 }
