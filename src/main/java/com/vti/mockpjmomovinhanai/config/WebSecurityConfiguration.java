@@ -1,6 +1,5 @@
 package com.vti.mockpjmomovinhanai.config;
 
-
 import com.vti.mockpjmomovinhanai.config.jwt.JWTRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

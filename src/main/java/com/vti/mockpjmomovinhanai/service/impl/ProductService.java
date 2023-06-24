@@ -5,15 +5,13 @@ import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDto;
 import com.vti.mockpjmomovinhanai.modal.dto.ProductDtoGetById;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
+import com.vti.mockpjmomovinhanai.modal.entity.ProductType;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
-import com.vti.mockpjmomovinhanai.modal.request.SearchProductRequest;
-import com.vti.mockpjmomovinhanai.modal.request.UpdateProductRequest;
 import com.vti.mockpjmomovinhanai.repository.ProductRepository;
-import com.vti.mockpjmomovinhanai.repository.specification.ProductSpecification;
 import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -39,6 +37,7 @@ public class ProductService implements IProductService {
             ProductDto productDto = new ProductDto();
             BeanUtils.copyProperties(product, productDto);
             productDto.setOrganizationName(product.getOrganizationId().getName());
+            productDto.setProductType(product.getProductType().toString());
             productDto.setDonate(product.getDonations().size()); // C1
 //            productDto.setDonate(donationRepository.countDonateBy(product.getId())); // cách 2
             response.add(productDto);
@@ -46,10 +45,18 @@ public class ProductService implements IProductService {
         return response;
     }
 
+
     @Override
-    public List<ProductDto> search(SearchProductRequest request) {
-        Specification<ProductDto> condition = ProductSpecification.buildCondition(request);
-        return repository.findAll(condition);
+    public List<ProductDto> search(ProductType productType) {
+        List<Product> products = repository.findAllByProductType(productType);
+        List<ProductDto> response = new ArrayList<>();
+        for (Product product: products) {
+            ProductDto productDto = new ProductDto();
+            BeanUtils.copyProperties(product, productDto);
+            productDto.setDonate(product.getDonations().size());
+            response.add(productDto);
+        }
+        return response;
     }
 
     @Override
@@ -77,10 +84,6 @@ public class ProductService implements IProductService {
 
     }
 
-    @Override
-    public void update(int id, UpdateProductRequest request) {
-
-    }
 
     @Override
     public void delete(int id) {
