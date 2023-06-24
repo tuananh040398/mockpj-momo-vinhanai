@@ -38,13 +38,4 @@ public class OrganizationService implements IOrganizationService {
 
     }
 
-    @Override
-    public Organization update(int id, UpdateOrganizationRequest request) {
-        return null;
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
 }

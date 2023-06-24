@@ -25,9 +25,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 // Config API không cần xác thực
-                .antMatchers("/api/v1/product/get-all-productdto", "/api/v1/account/create",
-                        "/api/v1/auth/login", "/api/v1/product/get-by/**", "/api/v1/product/search").permitAll()
-                .antMatchers(HttpMethod.GET,"/api/v1/product/delete-by/**").hasAnyAuthority("ADMIN")
+                .antMatchers("/api/v1/product/get-all-productdto", "/api/v1/account/create"
+                        ,"/api/v1/auth/login", "/api/v1/product/get-by/**", "/api/v1/product/search"
+                        ,"/api/v1/organization/get-by/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/product/delete-by/**"
+                        ,"api/v1/organization/get-all").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated() // Những đường dẫn còn lại cần dược xác thực
                 .and().httpBasic() // Kích hoạt cấu hình http basic trong Spring Security
                 .and().cors().and().csrf().disable(); // Tắt tính năng Cross-site Request Forgery (CSRF) trong spring Security

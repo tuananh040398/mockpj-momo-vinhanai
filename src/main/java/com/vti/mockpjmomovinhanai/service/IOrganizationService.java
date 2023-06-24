@@ -15,7 +15,4 @@ public interface IOrganizationService {
 
     void create(CreateOrganizationRequest request);
 
-    Organization update(int id, UpdateOrganizationRequest request);
-
-    void delete(int id);
 }
