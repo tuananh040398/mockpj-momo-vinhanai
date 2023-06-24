@@ -36,6 +36,7 @@ public class ProductService implements IProductService {
         for (Product product : products) {
             ProductDto productDto = new ProductDto();
             BeanUtils.copyProperties(product, productDto);
+            productDto.setOrganizationLogo(product.getOrganizationId().getLogo());
             productDto.setOrganizationName(product.getOrganizationId().getName());
             productDto.setProductType(product.getProductType().toString());
             productDto.setDonate(product.getDonations().size()); // C1
@@ -53,6 +54,7 @@ public class ProductService implements IProductService {
         for (Product product: products) {
             ProductDto productDto = new ProductDto();
             BeanUtils.copyProperties(product, productDto);
+            productDto.setOrganizationLogo(product.getOrganizationId().getLogo());
             productDto.setOrganizationName(product.getOrganizationId().getName());
             productDto.setProductType(product.getProductType().toString());
             productDto.setDonate(product.getDonations().size());

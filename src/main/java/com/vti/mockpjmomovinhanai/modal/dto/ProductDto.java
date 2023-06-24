@@ -11,6 +11,8 @@ public class ProductDto {
 
     private String title;
 
+    private String organizationLogo;
+
     private String organizationName;
 
     private Long cash;
