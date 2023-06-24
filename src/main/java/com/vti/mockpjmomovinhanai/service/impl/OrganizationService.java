@@ -4,7 +4,6 @@ import com.vti.mockpjmomovinhanai.exception.AppException;
 import com.vti.mockpjmomovinhanai.exception.ErrorResponseBase;
 import com.vti.mockpjmomovinhanai.modal.entity.Organization;
 import com.vti.mockpjmomovinhanai.modal.request.CreateOrganizationRequest;
-import com.vti.mockpjmomovinhanai.modal.request.UpdateOrganizationRequest;
 import com.vti.mockpjmomovinhanai.repository.OrganizationRepository;
 import com.vti.mockpjmomovinhanai.service.IOrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
 package com.vti.mockpjmomovinhanai.modal.request;
 
-import com.vti.mockpjmomovinhanai.modal.entity.Organization;
 import com.vti.mockpjmomovinhanai.modal.entity.ProductType;
 import lombok.Data;
 

@@ -3,7 +3,6 @@ package com.vti.mockpjmomovinhanai.controller;
 import com.vti.mockpjmomovinhanai.modal.entity.Organization;
 import com.vti.mockpjmomovinhanai.service.impl.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
