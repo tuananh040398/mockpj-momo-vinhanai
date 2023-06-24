@@ -1,6 +1,7 @@
 package com.vti.mockpjmomovinhanai.modal.entity;
 
 import lombok.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 
@@ -37,4 +38,11 @@ public class Account {
 
     @Column(name = "cash")
     private Long cash;
+
+    @PrePersist
+    public void prePersist() {
+        if (password == null) {
+            password = new BCryptPasswordEncoder().encode("123456");
+        }
+    }
 }
