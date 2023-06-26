@@ -81,7 +81,7 @@ public class AccountService implements IAccountService, UserDetailsService {
     public void update(int id, UpdateAccountRequest request) {
         Account account = getById(id);
         BeanUtils.copyProperties(request, account);
-        account.setPassword(new BCryptPasswordEncoder().encode(request.getPassword()));
+        account.setPassword(encoder.encode(request.getPassword()));
         repository.save(account);
     }
 
