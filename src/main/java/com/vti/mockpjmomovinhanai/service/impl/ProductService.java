@@ -96,19 +96,15 @@ public class ProductService implements IProductService {
         BeanUtils.copyProperties(request, product);
         Organization organization = organizationService.getById(request.getOrganizationId());
         if (organization != null) {
-            if (request.getMaxCash() < 1000000) {
-                throw new AppException(ErrorResponseBase.MIN_MAXCASH);
-            } else {
                 product.setOrganizationId(organization);
                 product.setCash(Long.valueOf(0));
                 product.setConfirm(ProductStatus.WAITING);
                 product.setCreateDate(new Date());
                 repository.save(product);
-            }
         }
 
     }
-    
+
     @Override
     public void delete(int id) {
         repository.deleteById(id);

@@ -6,6 +6,7 @@ import com.vti.mockpjmomovinhanai.modal.entity.Organization;
 import com.vti.mockpjmomovinhanai.modal.request.CreateOrganizationRequest;
 import com.vti.mockpjmomovinhanai.repository.OrganizationRepository;
 import com.vti.mockpjmomovinhanai.service.IOrganizationService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,13 @@ public class OrganizationService implements IOrganizationService {
 
     @Override
     public void create(CreateOrganizationRequest request) {
-
+        Organization organization = new Organization();
+        BeanUtils.copyProperties(request, organization);
+        Optional<Organization> organizationCheck = repository.findOrganizationByName(request.getName());
+        if (organizationCheck.isPresent()) {
+            throw new AppException(ErrorResponseBase.ORGANIZATION_EXISTED);
+        }
+        repository.save(organization);
     }
 
 }

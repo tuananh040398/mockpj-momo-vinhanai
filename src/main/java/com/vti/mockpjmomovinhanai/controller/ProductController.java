@@ -11,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -44,7 +45,7 @@ public class ProductController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     @PostMapping("/create")
-    public void create(@RequestBody CreateProductRequest request) {
+    public void create(@RequestBody @Valid CreateProductRequest request) {
         productService.create(request);
     }
 

@@ -13,7 +13,7 @@ public enum ErrorResponseBase {
     LOGIN_FAILS_USERNAME(HttpStatus.UNAUTHORIZED, "Người dùng không tồn tại"),
     LOGIN_FAILS_PASSWORD(HttpStatus.UNAUTHORIZED, "Mật khẩu không đúng"),
     USERNAME_EXISTED(HttpStatus.INTERNAL_SERVER_ERROR, "Username đã tồn tại"),
-    MIN_MAXCASH(HttpStatus.BAD_REQUEST, "Tối đa số tiền quyên góp phải lớn hơn hoặc bằng 1,000,000 VNĐ")
+    ORGANIZATION_EXISTED(HttpStatus.INTERNAL_SERVER_ERROR, "Tổ chức đã tồn tại")
     ;
 
     public final HttpStatus status;

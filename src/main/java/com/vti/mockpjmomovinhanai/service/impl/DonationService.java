@@ -52,20 +52,6 @@ public class DonationService implements IDonationService {
         return optional.get();
     }
 
-//    @Override
-//    public void create(CreateDonationRequest request) {
-//        Donation donation = new Donation();
-//        BeanUtils.copyProperties(request, donation);
-//        Account account = accountService.getById(request.getDonateBy());
-//        Product product = productService.getById(request.getProductId());
-//        if (account !=null && product !=null){
-//            donation.setDonateBy(account);
-//            donation.setProductId(product);
-//            donation.setCreateDate(new Date());
-//            repository.save(donation);
-//        }
-//    }
-
     @Override
     @Transactional(rollbackOn = Exception.class)
     public void create(CreateDonationRequest request) {
