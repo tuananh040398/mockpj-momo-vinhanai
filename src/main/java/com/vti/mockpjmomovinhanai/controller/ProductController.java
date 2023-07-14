@@ -7,6 +7,7 @@ import com.vti.mockpjmomovinhanai.modal.entity.ProductType;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
 import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +42,7 @@ public class ProductController {
         return productService.getProductDtoById(id);
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     @PostMapping("/create")
     public void create(@RequestBody CreateProductRequest request) {
         productService.create(request);
