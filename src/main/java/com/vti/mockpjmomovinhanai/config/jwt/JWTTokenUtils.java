@@ -44,6 +44,11 @@ public class JWTTokenUtils {
                 .claim("authorities", loginDto.getRole().name()) // Thêm trường authorities để lưu giá trị phân quyền
                 .claim("user_agent", loginDto.getUserAgent()).compact(); // Thêm trường user_agent để lưu thông tin trình duyệt đang dùng
 
+        Token tokenEntity = new Token();
+        tokenEntity.setToken(token);
+        tokenEntity.setExpiration(expirationDate);
+        tokenEntity.setUserAgent(loginDto.getUserAgent());
+        tokenRepository.save(tokenEntity);
         return token;
     }
 

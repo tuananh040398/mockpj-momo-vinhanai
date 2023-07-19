@@ -74,6 +74,7 @@ public class AccountService implements IAccountService, UserDetailsService {
         String encoderpassword = encoder.encode(request.getPassword());
         account.setPassword(encoderpassword);
         account.setRole(Role.CUSTOMER);
+        account.setCash(Long.valueOf(0));
         repository.save(account);
     }
 

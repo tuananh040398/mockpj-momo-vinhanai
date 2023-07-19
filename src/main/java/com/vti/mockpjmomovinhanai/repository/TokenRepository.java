@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface TokenRepository extends JpaRepository<Token, Long> {
 
-    Token findByToken(String token);
-
-    List<Token> findAllByExpirationIsAfter(Date exDate);
+//    Token findByToken(String token);
+//
+//    List<Token> findAllByExpirationIsAfter(Date exDate);
 }
