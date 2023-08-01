@@ -5,6 +5,7 @@ import com.vti.mockpjmomovinhanai.modal.dto.ProductDtoGetById;
 import com.vti.mockpjmomovinhanai.modal.entity.Product;
 import com.vti.mockpjmomovinhanai.modal.entity.ProductType;
 import com.vti.mockpjmomovinhanai.modal.request.CreateProductRequest;
+import com.vti.mockpjmomovinhanai.repository.ProductRepository;
 import com.vti.mockpjmomovinhanai.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,8 +21,7 @@ import java.util.List;
 @Validated
 public class ProductController {
     @Autowired
-    IProductService productService;
-
+    private IProductService productService;
 
     @GetMapping("/get-all")
     public List<Product> getAll() {

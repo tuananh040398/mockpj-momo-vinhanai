@@ -79,6 +79,7 @@ public class AccountService implements IAccountService, UserDetailsService {
     }
 
     @Override
+    @Transactional(rollbackOn = Exception.class)
     public void update(int id, UpdateAccountRequest request) {
         Account account = getById(id);
         BeanUtils.copyProperties(request, account);
